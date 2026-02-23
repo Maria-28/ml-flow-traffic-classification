@@ -1,0 +1,62 @@
+models:
+  # ========================================================================
+  # XGBoost - tuned
+  # ========================================================================
+  XGBoost:  # ← УБРАЛИ "_tuned"
+    enabled: true
+    use_scaler: false
+    params:
+      n_estimators: 300
+      max_depth: 8
+      learning_rate: 0.03
+      subsample: 0.85
+      colsample_bytree: 0.85
+      colsample_bylevel: 0.8
+      reg_alpha: 0.1
+      reg_lambda: 2.0
+      gamma: 0.1
+      min_child_weight: 3
+      max_delta_step: 1
+      scale_pos_weight: 1.15
+      random_state: 42
+      n_jobs: -1
+      eval_metric: ["logloss", "aucpr"]
+      early_stopping_rounds: 20
+      verbosity: 0
+  
+  # ========================================================================
+  # CatBoost - tuned
+  # ========================================================================
+  CatBoost:  # ← УБРАЛИ "_tuned"
+    enabled: true
+    use_scaler: false
+    params:
+      iterations: 1000
+      depth: 8
+      learning_rate: 0.03
+      l2_leaf_reg: 5.0
+      bagging_temperature: 0.8
+      random_strength: 1.0
+      border_count: 128
+      one_hot_max_size: 10
+      auto_class_weights: "Balanced"
+      random_seed: 42
+      verbose: false
+      allow_writing_files: false
+      early_stopping_rounds: 50
+      use_best_model: true
+  
+  # ========================================================================
+  # LogisticRegression (for comparison)
+  # ========================================================================
+  LogisticRegression:
+    enabled: true
+    use_scaler: true
+    params:
+      max_iter: 1000
+      C: 1.0
+      penalty: "l2"
+      solver: "lbfgs"
+      class_weight: "balanced"
+      random_state: 42
+      n_jobs: -1
