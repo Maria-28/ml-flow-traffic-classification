@@ -1,0 +1,2 @@
+﻿Comparison,McNemar χ²,p-value,Significant (α=0.05),Best Model F1,F1 95% CI Lower,F1 95% CI Upper
+XGBoost vs LogisticRegression,139.06206896551726,4.268962541216728e-32,YES,0.9987228607918263,0.9982673481733824,0.9991632056838832

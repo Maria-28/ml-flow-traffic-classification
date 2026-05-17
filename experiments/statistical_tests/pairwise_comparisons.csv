@@ -1,0 +1,4 @@
+Pair,Model_A,Model_B,F1_A,F1_B,F1_diff_A_minus_B,McNemar_b,McNemar_c,McNemar_chi2,McNemar_p,McNemar_significant,PairedBS_diff,PairedBS_CI_lower,PairedBS_CI_upper,PairedBS_p,PairedBS_significant
+XGBoost(v1_default) vs LR(v1_default),XGBoost(v1_default),LR(v1_default),0.998723,0.992456,0.006267,144,1,139.0621,4.2690e-32,YES,-0.006267,-0.00735,-0.005255,5.0400e-01,NO
+XGBoost(v1_default) vs CatBoost(v2_tuned),XGBoost(v1_default),CatBoost(v2_tuned),0.998723,0.995087,0.003636,86,3,75.5506,3.5617e-18,YES,-0.003636,-0.004444,-0.002857,4.8100e-01,NO
+XGBoost(v1_default) vs XGBoost(v2_tuned),XGBoost(v1_default),XGBoost(v2_tuned),0.998723,0.994821,0.003901,90,1,85.0989,2.8381e-20,YES,-0.003901,-0.004673,-0.003117,4.8200e-01,NO

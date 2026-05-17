@@ -1,0 +1,54 @@
+2026-02-22 19:03:38 | INFO     | ============================================================
+2026-02-22 19:03:38 | INFO     | DDoS Detection Experiment: boosting_v1_default
+2026-02-22 19:03:38 | INFO     | Run ID: 20260222_190338
+2026-02-22 19:03:38 | INFO     | Output directory: experiments\boosting\v1_default\20260222_190338
+2026-02-22 19:03:38 | INFO     | ============================================================
+2026-02-22 19:03:38 | INFO     | ========================================
+2026-02-22 19:03:38 | INFO     | STAGE 1: Data Preparation
+2026-02-22 19:03:38 | INFO     | ========================================
+2026-02-22 19:03:38 | INFO     | Loading cached data from: processed_43d973e2.joblib
+2026-02-22 19:03:38 | INFO     | Loaded: 180,568 train, 45,143 test samples
+2026-02-22 19:03:38 | INFO     | ========================================
+2026-02-22 19:03:38 | INFO     | STAGE 2: Model Training
+2026-02-22 19:03:38 | INFO     | ========================================
+2026-02-22 19:03:38 | WARNING  | Skipping LightGBM: not available
+2026-02-22 19:03:38 | INFO     | Training 3 models: ['XGBoost', 'CatBoost', 'LogisticRegression']
+2026-02-22 19:03:38 | INFO     | Training: XGBoost
+2026-02-22 19:03:40 | INFO     | Trained XGBoost in 2.17s (saved: xgboost.joblib)
+2026-02-22 19:03:40 | INFO     | Training: CatBoost
+2026-02-22 19:03:45 | INFO     | Trained CatBoost in 4.73s (saved: catboost.joblib)
+2026-02-22 19:03:45 | INFO     | Training: LogisticRegression
+2026-02-22 19:03:48 | INFO     | Trained LogisticRegression in 2.48s (saved: logisticregression.joblib)
+2026-02-22 19:03:48 | INFO     | Training complete. 3 models ready.
+2026-02-22 19:03:48 | INFO     | ========================================
+2026-02-22 19:03:48 | INFO     | STAGE 3: Evaluation
+2026-02-22 19:03:48 | INFO     | ========================================
+2026-02-22 19:03:56 | INFO     | Saved comparison table to: experiments\boosting\v1_default\20260222_190338\tables
+2026-02-22 19:03:56 | INFO     | Generating comparative plots...
+2026-02-22 19:03:57 | INFO     | 
+==================================================
+2026-02-22 19:03:57 | INFO     | EVALUATION RESULTS
+2026-02-22 19:03:57 | INFO     | ==================================================
+2026-02-22 19:03:57 | INFO     |   #1 XGBoost: F1=0.9987, AUC=0.9999
+2026-02-22 19:03:57 | INFO     |   #2 CatBoost: F1=0.9949, AUC=0.9999
+2026-02-22 19:03:57 | INFO     |   #3 LogisticRegression: F1=0.9925, AUC=0.9985
+2026-02-22 19:03:57 | INFO     | ========================================
+2026-02-22 19:03:57 | INFO     | STAGE 4: Statistical Significance Testing
+2026-02-22 19:03:57 | INFO     | ========================================
+2026-02-22 19:03:57 | INFO     | Comparing: XGBoost (best) vs LogisticRegression (baseline)
+2026-02-22 19:03:57 | INFO     | McNemar test: χ²=139.0621, p=0.0000
+2026-02-22 19:03:57 | INFO     | ✓ XGBoost is SIGNIFICANTLY better than LogisticRegression (p=0.0000)
+2026-02-22 19:03:57 | INFO     | Computing 95% CI for XGBoost F1 score...
+2026-02-22 19:04:04 | INFO     | XGBoost F1: 0.9987 (95% CI: [0.9983, 0.9992])
+2026-02-22 19:04:04 | INFO     | ========================================
+2026-02-22 19:04:04 | INFO     | STAGE 5: Error Analysis
+2026-02-22 19:04:04 | INFO     | ========================================
+2026-02-22 19:04:04 | INFO     | Analyzing errors for: XGBoost
+2026-02-22 19:04:05 | INFO     | Error analysis complete: FP=2, FN=27
+2026-02-22 19:04:05 | INFO     | Saving experiment metadata...
+2026-02-22 19:04:05 | INFO     | Metadata saved to: experiments\boosting\v1_default\20260222_190338\metadata.json
+2026-02-22 19:04:05 | INFO     | ============================================================
+2026-02-22 19:04:05 | INFO     | EXPERIMENT COMPLETED SUCCESSFULLY
+2026-02-22 19:04:05 | INFO     | Total time: 26.6s (0.4min)
+2026-02-22 19:04:05 | INFO     | All artifacts saved to: experiments\boosting\v1_default\20260222_190338
+2026-02-22 19:04:05 | INFO     | ============================================================

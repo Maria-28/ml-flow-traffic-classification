@@ -1,0 +1,57 @@
+2026-05-17 15:07:27 | INFO     | ============================================================
+2026-05-17 15:07:27 | INFO     | DDoS Detection Experiment: portscan_baseline
+2026-05-17 15:07:27 | INFO     | Run ID: 20260517_150727
+2026-05-17 15:07:27 | INFO     | Output directory: experiments\portscan\baseline\20260517_150727
+2026-05-17 15:07:27 | INFO     | ============================================================
+2026-05-17 15:07:27 | INFO     | ========================================
+2026-05-17 15:07:27 | INFO     | STAGE 1: Data Preparation
+2026-05-17 15:07:27 | INFO     | ========================================
+2026-05-17 15:07:27 | INFO     | Loading data from: Friday-PortScan.pcap_ISCX.csv
+2026-05-17 15:07:35 | INFO     | Building feature matrix...
+2026-05-17 15:07:36 | INFO     | Features after preprocessing: 57 (removed: leakage=17, constant=4)
+2026-05-17 15:07:36 | INFO     | Temporal split: 80% train / 20% test
+2026-05-17 15:07:37 | INFO     | Cached processed data to: processed_65d99670.joblib
+2026-05-17 15:07:37 | INFO     | Data ready: Train=228,876, Test=57,220
+2026-05-17 15:07:37 | INFO     | ========================================
+2026-05-17 15:07:37 | INFO     | STAGE 2: Model Training
+2026-05-17 15:07:37 | INFO     | ========================================
+2026-05-17 15:07:37 | INFO     | Training 3 models: ['LogisticRegression', 'XGBoost', 'CatBoost']
+2026-05-17 15:07:37 | INFO     | Training: LogisticRegression
+2026-05-17 15:07:42 | INFO     | Trained LogisticRegression in 5.35s (saved: logisticregression.joblib)
+2026-05-17 15:07:42 | INFO     | Training: XGBoost
+2026-05-17 15:07:51 | INFO     | Trained XGBoost in 8.72s (saved: xgboost.joblib)
+2026-05-17 15:07:51 | INFO     | Training: CatBoost
+2026-05-17 15:08:23 | INFO     | Trained CatBoost in 32.04s (saved: catboost.joblib)
+2026-05-17 15:08:23 | INFO     | Training complete. 3 models ready.
+2026-05-17 15:08:23 | INFO     | ========================================
+2026-05-17 15:08:23 | INFO     | STAGE 3: Evaluation
+2026-05-17 15:08:23 | INFO     | ========================================
+2026-05-17 15:08:42 | INFO     | Saved comparison table to: experiments\portscan\baseline\20260517_150727\tables
+2026-05-17 15:08:42 | INFO     | Generating comparative plots...
+2026-05-17 15:08:45 | INFO     | 
+==================================================
+2026-05-17 15:08:45 | INFO     | EVALUATION RESULTS
+2026-05-17 15:08:45 | INFO     | ==================================================
+2026-05-17 15:08:45 | INFO     |   #1 XGBoost: F1=0.9985, AUC=1.0000
+2026-05-17 15:08:45 | INFO     |   #2 CatBoost: F1=0.9984, AUC=0.9999
+2026-05-17 15:08:45 | INFO     |   #3 LogisticRegression: F1=0.9973, AUC=0.9995
+2026-05-17 15:08:45 | INFO     | ========================================
+2026-05-17 15:08:45 | INFO     | STAGE 4: Statistical Significance Testing
+2026-05-17 15:08:45 | INFO     | ========================================
+2026-05-17 15:08:45 | INFO     | Comparing: XGBoost (best) vs LogisticRegression (baseline)
+2026-05-17 15:08:45 | INFO     | McNemar test: χ²=50.1607, p=0.0000
+2026-05-17 15:08:45 | INFO     | ✓ XGBoost is SIGNIFICANTLY better than LogisticRegression (p=0.0000)
+2026-05-17 15:08:45 | INFO     | Computing 95% CI for XGBoost F1 score...
+2026-05-17 15:09:00 | INFO     | XGBoost F1: 0.9985 (95% CI: [0.9981, 0.9989])
+2026-05-17 15:09:01 | INFO     | ========================================
+2026-05-17 15:09:01 | INFO     | STAGE 5: Error Analysis
+2026-05-17 15:09:01 | INFO     | ========================================
+2026-05-17 15:09:01 | INFO     | Analyzing errors for: XGBoost
+2026-05-17 15:09:03 | INFO     | Error analysis complete: FP=0, FN=65
+2026-05-17 15:09:03 | INFO     | Saving experiment metadata...
+2026-05-17 15:09:03 | INFO     | Metadata saved to: experiments\portscan\baseline\20260517_150727\metadata.json
+2026-05-17 15:09:03 | INFO     | ============================================================
+2026-05-17 15:09:03 | INFO     | EXPERIMENT COMPLETED SUCCESSFULLY
+2026-05-17 15:09:03 | INFO     | Total time: 95.2s (1.6min)
+2026-05-17 15:09:03 | INFO     | All artifacts saved to: experiments\portscan\baseline\20260517_150727
+2026-05-17 15:09:03 | INFO     | ============================================================

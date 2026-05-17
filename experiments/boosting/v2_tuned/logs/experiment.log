@@ -1,0 +1,55 @@
+2026-02-22 20:31:00 | INFO     | ============================================================
+2026-02-22 20:31:00 | INFO     | DDoS Detection Experiment: boosting_vs_baseline
+2026-02-22 20:31:00 | INFO     | Run ID: 20260222_203100
+2026-02-22 20:31:00 | INFO     | Output directory: experiments\boosting\20260222_203100
+2026-02-22 20:31:00 | INFO     | ============================================================
+2026-02-22 20:31:00 | INFO     | ========================================
+2026-02-22 20:31:00 | INFO     | STAGE 1: Data Preparation
+2026-02-22 20:31:00 | INFO     | ========================================
+2026-02-22 20:31:00 | INFO     | Loading cached data from: processed_43d973e2.joblib
+2026-02-22 20:31:00 | INFO     | Loaded: 180,568 train, 45,143 test samples
+2026-02-22 20:31:00 | INFO     | ========================================
+2026-02-22 20:31:00 | INFO     | STAGE 2: Model Training
+2026-02-22 20:31:00 | INFO     | ========================================
+2026-02-22 20:31:00 | INFO     | Training 3 models: ['XGBoost', 'CatBoost', 'LogisticRegression']
+2026-02-22 20:31:00 | INFO     | Training: XGBoost
+2026-02-22 20:31:00 | INFO     |   XGBoost with early stopping detected
+2026-02-22 20:31:03 | INFO     | Trained XGBoost in 2.17s (saved: xgboost.joblib)
+2026-02-22 20:31:03 | INFO     | Training: CatBoost
+2026-02-22 20:31:03 | INFO     |   CatBoost with early stopping / use_best_model detected
+2026-02-22 20:31:34 | INFO     | Trained CatBoost in 30.85s (saved: catboost.joblib)
+2026-02-22 20:31:34 | INFO     | Training: LogisticRegression
+2026-02-22 20:31:36 | INFO     | Trained LogisticRegression in 2.30s (saved: logisticregression.joblib)
+2026-02-22 20:31:36 | INFO     | Training complete. 3 models ready.
+2026-02-22 20:31:36 | INFO     | ========================================
+2026-02-22 20:31:36 | INFO     | STAGE 3: Evaluation
+2026-02-22 20:31:36 | INFO     | ========================================
+2026-02-22 20:31:44 | INFO     | Saved comparison table to: experiments\boosting\20260222_203100\tables
+2026-02-22 20:31:44 | INFO     | Generating comparative plots...
+2026-02-22 20:31:45 | INFO     | 
+==================================================
+2026-02-22 20:31:45 | INFO     | EVALUATION RESULTS
+2026-02-22 20:31:45 | INFO     | ==================================================
+2026-02-22 20:31:45 | INFO     |   #1 CatBoost: F1=0.9951, AUC=0.9999
+2026-02-22 20:31:45 | INFO     |   #2 XGBoost: F1=0.9948, AUC=0.9992
+2026-02-22 20:31:45 | INFO     |   #3 LogisticRegression: F1=0.9929, AUC=0.9986
+2026-02-22 20:31:45 | INFO     | ========================================
+2026-02-22 20:31:45 | INFO     | STAGE 4: Statistical Significance Testing
+2026-02-22 20:31:45 | INFO     | ========================================
+2026-02-22 20:31:45 | INFO     | Comparing: CatBoost (best) vs LogisticRegression (baseline)
+2026-02-22 20:31:45 | INFO     | McNemar test: χ²=10.8153, p=0.0010
+2026-02-22 20:31:45 | INFO     | ✓ CatBoost is SIGNIFICANTLY better than LogisticRegression (p=0.0010)
+2026-02-22 20:31:45 | INFO     | Computing 95% CI for CatBoost F1 score...
+2026-02-22 20:31:52 | INFO     | CatBoost F1: 0.9951 (95% CI: [0.9941, 0.9959])
+2026-02-22 20:31:53 | INFO     | ========================================
+2026-02-22 20:31:53 | INFO     | STAGE 5: Error Analysis
+2026-02-22 20:31:53 | INFO     | ========================================
+2026-02-22 20:31:53 | INFO     | Analyzing errors for: CatBoost
+2026-02-22 20:31:53 | INFO     | Error analysis complete: FP=88, FN=24
+2026-02-22 20:31:53 | INFO     | Saving experiment metadata...
+2026-02-22 20:31:53 | INFO     | Metadata saved to: experiments\boosting\20260222_203100\metadata.json
+2026-02-22 20:31:53 | INFO     | ============================================================
+2026-02-22 20:31:53 | INFO     | EXPERIMENT COMPLETED SUCCESSFULLY
+2026-02-22 20:31:53 | INFO     | Total time: 53.2s (0.9min)
+2026-02-22 20:31:53 | INFO     | All artifacts saved to: experiments\boosting\20260222_203100
+2026-02-22 20:31:53 | INFO     | ============================================================

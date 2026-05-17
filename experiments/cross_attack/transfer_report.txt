@@ -1,0 +1,13 @@
+Cross-Attack Transfer Results
+============================================================
+
+                      Scenario  Precision   Recall       F1  ROC_AUC   PR_AUC
+        DDoS model → DDoS test   0.999824 0.997624 0.998723 0.999896 0.999729
+    DDoS model → PortScan test   0.866667 0.001797 0.003587 0.925047 0.839993
+    PortScan model → DDoS test   0.933333 0.003695 0.007361 0.880500 0.746773
+PortScan model → PortScan test   1.000000 0.997005 0.998500 0.999958 0.999942
+
+Интерпретация:
+  Строки 1,4 — in-domain (модель на своих данных)
+  Строки 2,3 — cross-domain (перенос на чужие данные)
+  Снижение F1 в строках 2,3 vs 1,4 = деградация при переносе

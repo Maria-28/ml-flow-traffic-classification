@@ -4,19 +4,6 @@ __pycache__/
 *.so
 .Python
 
-# Data
-data/
-*.csv
-*.joblib
-*.pkl
-
-# Experiments
-experiments/
-results/
-
-# Logs
-*.log
-
 # IDE
 .vscode/
 .idea/
@@ -24,3 +11,17 @@ results/
 # OS
 .DS_Store
 Thumbs.db
+
+# Archives
+*.tar.gz
+
+# Virtual env
+.venv/
+venv/
+.env
+
+# CatBoost temp
+catboost_info/
+data/raw/
+для 2 главы/*.csv
+data/processed/

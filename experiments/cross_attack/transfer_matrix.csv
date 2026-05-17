@@ -1,0 +1,5 @@
+Scenario,Precision,Recall,F1,ROC_AUC,PR_AUC
+DDoS model → DDoS test,0.999824,0.997624,0.998723,0.999896,0.999729
+DDoS model → PortScan test,0.866667,0.001797,0.003587,0.925047,0.839993
+PortScan model → DDoS test,0.933333,0.003695,0.007361,0.8805,0.746773
+PortScan model → PortScan test,1.0,0.997005,0.9985,0.999958,0.999942

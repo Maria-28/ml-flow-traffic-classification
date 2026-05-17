@@ -1,0 +1,49 @@
+SHAP Analysis Summary — XGBoost(v1_default)
+Sample size: 5000
+Spearman ρ(shap_rank, gain_rank), top-20: 0.7098, p=4.5584e-04
+
+Top-20 by mean |SHAP|:
+                    feature  mean_abs_shap  shap_rank
+      Fwd Packet Length Max       2.747083          1
+     Init_Win_bytes_forward       1.978343          2
+Total Length of Fwd Packets       1.654968          3
+           Destination Port       1.434047          4
+     Fwd Packet Length Mean       1.028108          5
+      Bwd Packet Length Std       0.561265          6
+          Bwd Header Length       0.313392          7
+    Init_Win_bytes_backward       0.303666          8
+          Fwd Header Length       0.274631          9
+           act_data_pkt_fwd       0.205221         10
+               Flow IAT Std       0.163842         11
+              Flow Duration       0.123096         12
+                Fwd IAT Max       0.106761         13
+     Total Backward Packets       0.096364         14
+         Packet Length Mean       0.068851         15
+              Bwd IAT Total       0.065054         16
+               Flow IAT Max       0.063243         17
+               Flow IAT Min       0.053412         18
+     Bwd Packet Length Mean       0.051459         19
+               Fwd IAT Mean       0.051235         20
+
+Top-20 by Gain:
+                    feature        gain  gain_share  gain_rank
+     Init_Win_bytes_forward 3938.394043    0.248894          1
+     Fwd Packet Length Mean 3408.158691    0.215385          2
+      Fwd Packet Length Max 3339.880859    0.211070          3
+Total Length of Fwd Packets 2116.472656    0.133754          4
+           Destination Port 1494.391479    0.094441          5
+           act_data_pkt_fwd  436.290863    0.027572          6
+      Fwd Packet Length Std  311.094208    0.019660          7
+         Packet Length Mean  203.008286    0.012829          8
+       min_seg_size_forward   68.312927    0.004317          9
+          Max Packet Length   60.441406    0.003820         10
+          Fwd Header Length   55.951710    0.003536         11
+    Init_Win_bytes_backward   49.654751    0.003138         12
+     Bwd Packet Length Mean   43.696426    0.002761         13
+          Total Fwd Packets   42.831024    0.002707         14
+        Fwd Header Length.1   31.960592    0.002020         15
+Total Length of Bwd Packets   26.995264    0.001706         16
+          Min Packet Length   24.706720    0.001561         17
+               Flow IAT Std   20.889814    0.001320         18
+          Bwd Header Length   15.820112    0.001000         19
+               Bwd IAT Mean   11.590694    0.000732         20

@@ -1,0 +1,2 @@
+Threshold_default,F1_default,Threshold_optimal,F1_optimal,Precision_optimal,Recall_optimal,F1_gain
+0.5,0.998723,0.745715,0.998767,0.999912,0.997624,4.4e-05

@@ -1,0 +1,189 @@
+{
+  "run_id": "20260222_203100",
+  "timestamp": "2026-02-22T20:31:53.941286",
+  "python_version": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
+  "config": {
+    "name": "boosting_vs_baseline",
+    "random_state": 42,
+    "cross_validation": false,
+    "cv_folds": 5,
+    "save_models": true,
+    "cache_predictions": true,
+    "results_root": "experiments/boosting",
+    "data": {
+      "path": "data/raw/Friday-DDos.pcap_ISCX.csv",
+      "train_ratio": 0.8,
+      "remove_leakage": true,
+      "cache_processed": true,
+      "cache_dir": "data/processed"
+    },
+    "models": {
+      "XGBoost": {
+        "enabled": true,
+        "use_scaler": false,
+        "params": {
+          "n_estimators": 300,
+          "max_depth": 8,
+          "learning_rate": 0.03,
+          "subsample": 0.85,
+          "colsample_bytree": 0.85,
+          "colsample_bylevel": 0.8,
+          "reg_alpha": 0.1,
+          "reg_lambda": 2.0,
+          "gamma": 0.1,
+          "min_child_weight": 3,
+          "max_delta_step": 1,
+          "scale_pos_weight": 1.15,
+          "random_state": 42,
+          "n_jobs": -1,
+          "eval_metric": [
+            "logloss",
+            "aucpr"
+          ],
+          "early_stopping_rounds": 20,
+          "verbosity": 0
+        }
+      },
+      "CatBoost": {
+        "enabled": true,
+        "use_scaler": false,
+        "params": {
+          "iterations": 1000,
+          "depth": 8,
+          "learning_rate": 0.03,
+          "l2_leaf_reg": 5.0,
+          "bagging_temperature": 0.8,
+          "random_strength": 1.0,
+          "border_count": 128,
+          "one_hot_max_size": 10,
+          "auto_class_weights": "Balanced",
+          "random_seed": 42,
+          "verbose": false,
+          "allow_writing_files": false,
+          "early_stopping_rounds": 50,
+          "use_best_model": true
+        }
+      },
+      "LogisticRegression": {
+        "enabled": true,
+        "use_scaler": true,
+        "params": {
+          "max_iter": 1000,
+          "C": 1.0,
+          "penalty": "l2",
+          "solver": "lbfgs",
+          "class_weight": "balanced",
+          "random_state": 42,
+          "n_jobs": -1
+        }
+      }
+    }
+  },
+  "features_used": [
+    "Destination Port",
+    "Flow Duration",
+    "Total Fwd Packets",
+    "Total Backward Packets",
+    "Total Length of Fwd Packets",
+    "Total Length of Bwd Packets",
+    "Fwd Packet Length Max",
+    "Fwd Packet Length Min",
+    "Fwd Packet Length Mean",
+    "Fwd Packet Length Std",
+    "Bwd Packet Length Max",
+    "Bwd Packet Length Min",
+    "Bwd Packet Length Mean",
+    "Bwd Packet Length Std",
+    "Flow IAT Mean",
+    "Flow IAT Std",
+    "Flow IAT Max",
+    "Flow IAT Min",
+    "Fwd IAT Total",
+    "Fwd IAT Mean",
+    "Fwd IAT Std",
+    "Fwd IAT Max",
+    "Fwd IAT Min",
+    "Bwd IAT Total",
+    "Bwd IAT Mean",
+    "Bwd IAT Std",
+    "Bwd IAT Max",
+    "Bwd IAT Min",
+    "Fwd PSH Flags",
+    "Fwd Header Length",
+    "Bwd Header Length",
+    "Min Packet Length",
+    "Max Packet Length",
+    "Packet Length Mean",
+    "Packet Length Std",
+    "Packet Length Variance",
+    "FIN Flag Count",
+    "SYN Flag Count",
+    "RST Flag Count",
+    "PSH Flag Count",
+    "ACK Flag Count",
+    "URG Flag Count",
+    "ECE Flag Count",
+    "Down/Up Ratio",
+    "Fwd Header Length.1",
+    "Init_Win_bytes_forward",
+    "Init_Win_bytes_backward",
+    "act_data_pkt_fwd",
+    "min_seg_size_forward",
+    "Active Mean",
+    "Active Std",
+    "Active Max",
+    "Active Min",
+    "Idle Mean",
+    "Idle Std",
+    "Idle Max",
+    "Idle Min"
+  ],
+  "train_samples": 180568,
+  "test_samples": 45143,
+  "models_trained": [
+    "XGBoost",
+    "CatBoost",
+    "LogisticRegression"
+  ],
+  "results_summary": [
+    {
+      "precision": 0.9924693520140105,
+      "recall": 0.9971845856061939,
+      "f1": 0.9948213815500746,
+      "roc_auc": 0.9991655765265983,
+      "pr_auc": 0.9987711637359916,
+      "Model": "XGBoost"
+    },
+    {
+      "precision": 0.9923009623797026,
+      "recall": 0.9978884392046454,
+      "f1": 0.9950868573433935,
+      "roc_auc": 0.9999216429672979,
+      "pr_auc": 0.9997953432241345,
+      "Model": "CatBoost"
+    },
+    {
+      "precision": 0.9905429071803853,
+      "recall": 0.9952489882104523,
+      "f1": 0.9928903712806109,
+      "roc_auc": 0.9985640908353731,
+      "pr_auc": 0.9960664827571818,
+      "Model": "LogisticRegression"
+    }
+  ],
+  "statistical_tests": [
+    {
+      "Comparison": "CatBoost vs LogisticRegression",
+      "McNemar \u03c7\u00b2": 10.815315315315315,
+      "p-value": 0.0010066387873276068,
+      "Significant (\u03b1=0.05)": "YES",
+      "Best Model F1": 0.9950868573433935,
+      "F1 95% CI Lower": 0.9941366087982472,
+      "F1 95% CI Upper": 0.9959360586567444
+    }
+  ],
+  "dependencies": {
+    "xgboost_available": true,
+    "catboost_available": true
+  }
+}

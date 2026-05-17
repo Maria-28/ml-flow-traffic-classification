@@ -1,0 +1,2 @@
+﻿Comparison,McNemar χ²,p-value,Significant (α=0.05),Best Model F1,F1 95% CI Lower,F1 95% CI Upper
+CatBoost vs LogisticRegression,10.815315315315315,0.0010066387873276068,YES,0.9950868573433935,0.9941366087982472,0.9959360586567444
